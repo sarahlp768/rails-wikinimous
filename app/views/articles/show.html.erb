@@ -1,0 +1,21 @@
+<div class="container bg-white p-4 rounded shadow-sm text-center">
+  <h2 class="my-4 text-primary">
+    <strong><%= @article.title %></strong>
+  </h2>
+
+  <p class="text-dark"><strong>Title:</strong> <%= @article.title %></p>
+  <p class="text-dark"><strong>Content:</strong> <%= @article.content %></p>
+
+  <div class="d-flex justify-content-center mt-4 gap-3">
+    <%= link_to "Back to article list", articles_path, class: "btn btn-outline-success btn-lg" %>
+    <%= link_to "Edit the article", edit_article_path(@article), class: "btn btn-outline-primary btn-lg" %>
+    <%= link_to "Delete", article_path(@article),
+      method: :delete,
+      data: { turbo_confirm: "Are you sure?", turbo_method: :delete },
+      class: "btn btn-outline-danger btn-lg" %>
+  </div>
+
+  <p class="mt-4 text-muted">
+    <small>Article details page</small>
+  </p>
+</div>

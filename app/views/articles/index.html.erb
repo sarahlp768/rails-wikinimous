@@ -1,0 +1,23 @@
+<h1 class="text-center my-4">Mes Articles</h1>
+
+<div class="container bg-white p-4 rounded shadow-sm">
+  <!-- "New Article" button in top-left corner -->
+  <div class="mb-4">
+    <%= link_to "Ajouter un nouvel article", new_article_path, class: "btn btn-primary btn-lg position-absolute top-0 start-0 ms-4 mt-4" %>
+  </div>
+
+  <!-- Articles List -->
+  <div class="row">
+    <% @articles.each do |article| %>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title"><%= link_to article.title, article_path(article), class: "text-decoration-none text-dark" %></h3>
+            <p class="card-text"><%= truncate(article.content, length: 150) %></p>
+            <%= link_to 'Read more', article_path(article), class: "btn btn-outline-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
